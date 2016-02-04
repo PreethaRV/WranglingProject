@@ -11,6 +11,10 @@ subject_train <- read.table('train/subject_train.txt')
 body_acc_x_test<- read.table('test/Inertial Signals/body_acc_x_test.txt')
 body_acc_x_train <- read.table('train/Inertial Signals/body_acc_x_train.txt')
 
+
+body_acc_y_test<- read.table('test/Inertial Signals/body_acc_y_test.txt')
+body_acc_y_train <- read.table('train/Inertial Signals/body_acc_y_train.txt')
+
 activity_labels <- read.table('activity_labels.txt')
 
 library("dplyr")
@@ -20,3 +24,6 @@ xtest$subject <- ytest$V1
 xtrain$subject <- ytrain$V1
 
 tData <- bind_rows(xtest,xtrain)
+
+glimpse(tData)
+tData %>% select(subject,V1:V561)
